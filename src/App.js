@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React from 'react';
+import Header from './Header/Header';
+import Content from './Content/Content';
+import Footer from './Footer/Footer';
 import './App.css';
+import { useState } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("shoppingList"))
+  //[
+  //   {
+  //     id: 1,
+  //     checked: true,
+  //     item: 'One half bag of Cocoa Covered Almonds Unsalted',
+  //   },
+  //   {
+  //     id: 2,
+  //     checked: false,
+  //     item: 'Item 2',
+  //   },
+  //   {
+  //     id: 3,
+  //     checked: false,
+  //     item: 'Item 3',
+  //   },
+  // ]
   );
+  return (
+    <div className='App'>
+      <Header title="Groceries List" />
+      <Content items={items} setItems={setItems} />
+      <Footer itemsLength={items.length}/>  
+    </div>
+  )
 }
 
-export default App;
+export default App

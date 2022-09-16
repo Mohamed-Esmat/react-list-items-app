@@ -1,0 +1,10 @@
+footer {
+    width: 100%;
+    padding: 0.25em;
+    background-color: mediumblue;
+    display: grid;
+    place-content: center;
+  }
+  footer .itemsNumber{
+    color: aliceblue;
+  }
